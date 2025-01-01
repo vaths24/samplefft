@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FFT Audio Signal Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .container {
+            margin-top: 20px;
+        }
+        input[type="file"] {
+            padding: 10px;
+            margin: 20px 0;
+        }
+        img {
+            margin-top: 20px;
+            width: 80%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>FFT Analysis of Audio Signal</h1>
+    <div class="container">
+        <form action="/upload" method="POST" enctype="multipart/form-data">
+            <input type="file" name="audio_file" accept="audio/*" required>
+            <br>
+            <input type="submit" value="Upload and Analyze">
+        </form>
+    </div>
+
+    {% if plot_url %}
+        <h2>FFT Plot:</h2>
+        <img src="{{ plot_url }}" alt="FFT Plot">
+    {% endif %}
+</body>
+</html>
